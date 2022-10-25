@@ -1,0 +1,70 @@
+.nav {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: rgb(224, 222, 222);
+    padding: 20px 50px;
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.nav__list {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.nav__link {
+    position: relative;
+    color: #2e363e;
+}
+
+.nav__notification {
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+    animation: notificationAnimation 2s ease-in-out infinite;
+}
+
+.nav__alarm {
+    display: flex;
+    width: 5px;
+    height: 5px;
+    border-radius: 2.5px;
+    background-color: tomato;
+    position: absolute;
+    left: 30px;
+}
+
+@keyframes notificationAnimation {
+    0% {
+        transform: none;
+    }
+    50% {
+        transform: translateY(-5px) rotateY(30deg);
+    }
+    100% {
+        transform: none;
+    }
+}
+
+@keyframes appearBtnAnimation {
+    0% {
+        transform: translateY(15px);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+
+    100% {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+.nav__btn {
+    animation: appearBtnAnimation 1s ease-in-out;
+}
+
