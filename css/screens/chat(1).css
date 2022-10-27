@@ -113,6 +113,7 @@
     margin-left: 8px;
 }
 
+
 /* Keyboard section */
 .reply {
     display: flex;
@@ -125,7 +126,9 @@
     padding: 5px 25px;
     box-sizing: border-box;
 }
-
+.reply i {
+    opacity: 0.5;
+}
 
 .reply .reply__column:first-child {
     width: 50px;
@@ -137,7 +140,6 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    transition: all 1s ease-in-out;
 }
 
 .reply .reply__column:last-child input {
@@ -159,20 +161,35 @@
     margin-left: 15px;
 }
 
-.reply i {
-    opacity: 0.5;
-}
 
 .reply__column:first-child,
 .reply__column .fa-smile {
-    transition: all 2s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 
-.reply:focus-within .reply__column:first-child,
 .reply:focus-within .reply__column .fa-smile {
     opacity: 0;
 }
 
-.reply:focus-within .reply__column:last-child {
-    width: 100vmax;
+@keyframes widthchange {
+    from { transform: none;}
+    to {
+        width: 0;
+        margin: 0;
+        padding: 0;
+    }
+}
+.reply:focus-within .reply__column:first-child {
+    animation: widthchange 1s ease-in-out forwards;
+    opacity: 0;
+}
+
+
+.reply,
+.reply__column:last-child {
+    transition: transform 2s linear;
+}
+
+.reply:focus-within .reply {
+    transform: translateY(50px);
 }
